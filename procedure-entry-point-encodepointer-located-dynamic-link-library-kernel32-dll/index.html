@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+<title>The procedure entry point EncodePointer could not be located in the dynamic link library KERNEL32.dll | PrimoBurner</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Primo Software">
+<meta name="generator" content="Jekyll v4.3.3">
+<link rel="canonical" href="https://blog.primoburner.com/procedure-entry-point-encodepointer-located-dynamic-link-library-kernel32-dll/">
+
+
+<link rel="stylesheet" href="/assets/css/frame.css">
+
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="PrimoBurner">
+
+
+
+<script src="//primoburner-blog.disqus.com/embed.js" async></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-25B50SV98X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-25B50SV98X');
+</script>
+
+</head>
+
+
+
+
+<header>
+  <a href="https://primoburner.com" class="title">PrimoBurner</a>
+  <nav><a aria-label="Home" href="https://primoburner.com/" ><span aria-hidden="true">Home</span></a><a aria-label="Blog" href="/" ><span aria-hidden="true">Blog</span></a><a aria-label="Archive" href="/archive/" ><span aria-hidden="true">Archive</span></a></nav>
+
+</header>
+
+<article>
+  <header>
+  <h1><a href="/procedure-entry-point-encodepointer-located-dynamic-link-library-kernel32-dll/">The procedure entry point EncodePointer could not be located in the dynamic link library KERNEL32.dll</a></h1><time datetime="2010-07-02T00:00:00-07:00">July 02, 2010</time>
+</header>
+
+  <p>When using PrimoBurner 3.5.3 on Windows XP with SP1 or lower you may receive the following error:</p>
+
+<p>“The procedure entry point EncodePointer could not be located in the dynamic link library KERNEL32.dll”</p>
+
+<p>This is due to the fact that PrimoBurner 3.5.3 uses the VC runtime that comes with Visual Studio 2010 which in turn uses some API functions that are present only in Windows XP SP2 and above.</p>
+
+<p>For more information please see:<a href="http://support.microsoft.com/kb/2005279">http://support.microsoft.com/kb/2005279</a></p>
+
+  
+    <hr>
+    <div id="disqus_thread"></div>
+    
+    <noscript>Please enable JavaScript to view comments.</noscript>
+  
+</article>
+
+
+
+<footer>
+  <div>&copy; Primo Software</div>
+  <nav><a aria-label="Mail" href="mailto:sales@primoburner.com" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a aria-label="Github" href="https://github.com/primoburner" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a><a aria-label="Subscribe" href="/feed.xml" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#rss"></use></svg></a></nav>
+
+</footer>
+
+
+</html>

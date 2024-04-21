@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+<title>How to create a hidden track at the beginning of a CD | PrimoBurner</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Primo Software">
+<meta name="generator" content="Jekyll v4.3.3">
+<link rel="canonical" href="https://blog.primoburner.com/create-hidden-track-beginning-audio-cd/">
+
+
+<link rel="stylesheet" href="/assets/css/frame.css">
+
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="PrimoBurner">
+
+
+
+<script src="//primoburner-blog.disqus.com/embed.js" async></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-25B50SV98X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-25B50SV98X');
+</script>
+
+</head>
+
+
+
+
+<header>
+  <a href="https://primoburner.com" class="title">PrimoBurner</a>
+  <nav><a aria-label="Home" href="https://primoburner.com/" ><span aria-hidden="true">Home</span></a><a aria-label="Blog" href="/" ><span aria-hidden="true">Blog</span></a><a aria-label="Archive" href="/archive/" ><span aria-hidden="true">Archive</span></a></nav>
+
+</header>
+
+<article>
+  <header>
+  <h1><a href="/create-hidden-track-beginning-audio-cd/">How to create a hidden track at the beginning of a CD</a></h1><time datetime="2010-06-25T00:00:00-07:00">June 25, 2010</time>
+</header>
+
+  <p>While PrimoBurner enforces a minimum pre-gap of 2 seconds at the beginning of an audio session, there is no restriction for the maximum length of the pre-gap, so it is possible to place an arbitrary audio content in the pre-gap of the first track.</p>
+
+<p>Such a layout will create a CD with the a “hidden track”. It is “hidden” because normally the only way to play it is by manually seeking to before the start of the first track.</p>
+
+<p>The following code uses <a href="http://doc.primoburner.com/legacy/help/cpp/3.6.1/primo__burner__ICDTrack.html">ICDTrack</a> to create an audio CD with a 23 second “hidden” track:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">IAudioInput</span><span class="o">*</span> <span class="nf">AddFileInput</span><span class="p">(</span><span class="n">IAudioCD</span><span class="o">*</span> <span class="n">pAudio</span><span class="p">,</span> <span class="n">char_t</span><span class="o">*</span> <span class="n">pFilePath</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">IAudioInput</span><span class="o">*</span> <span class="n">ain</span> <span class="o">=</span> <span class="n">Library</span><span class="o">::</span><span class="n">CreateAudioInput</span><span class="p">();</span>
+
+        <span class="n">ain</span><span class="o">-&gt;</span><span class="n">SetFilePath</span><span class="p">(</span><span class="n">pFilePath</span><span class="p">);</span>
+
+        <span class="n">bool_t</span> <span class="n">res</span> <span class="o">=</span> <span class="n">pAudio</span><span class="o">-&gt;</span><span class="n">GetAudioInputsRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">ain</span><span class="p">);</span>
+
+    <span class="c1">// leaves AudioCD to be the single owner the IAudioInput instance</span>
+    <span class="n">ain</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span> 
+
+    <span class="k">return</span> <span class="n">ain</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">WriteToCD_HiddenTrack_Simple</span><span class="p">(</span><span class="n">IAudioCD</span> <span class="o">*</span><span class="n">pAudio</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// the number of seconds to be 'hidden' in the first audio track</span>
+    <span class="kt">int</span> <span class="n">hiddenSeconds</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+
+    <span class="n">AddFileInput</span><span class="p">(</span><span class="n">pAudio</span><span class="p">,</span> <span class="s">L"my_file.wav"</span><span class="p">);</span>
+
+    <span class="c1">// calculate the length of the first audio track</span>
+    <span class="kt">int32_t</span> <span class="n">len1</span> <span class="o">=</span> <span class="n">audio</span><span class="o">-&gt;</span><span class="n">GetInputLength</span><span class="p">(</span><span class="n">audio</span><span class="o">-&gt;</span><span class="n">GetAudioInputsRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetItemRef</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+
+    <span class="n">ICDSession</span><span class="o">*</span> <span class="n">pSession</span> <span class="o">=</span> <span class="n">Library</span><span class="o">::</span><span class="n">CreateCDSession</span><span class="p">();</span>
+
+        <span class="n">pSession</span><span class="o">-&gt;</span><span class="n">SetType</span><span class="p">(</span><span class="n">ST_CDDA</span><span class="p">);</span>
+        <span class="kt">int32_t</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="n">ICDTrack</span><span class="o">*</span> <span class="n">pTrack</span> <span class="o">=</span> <span class="n">Library</span><span class="o">::</span><span class="n">CreateCDTrack</span><span class="p">();</span>
+
+            <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetType</span><span class="p">(</span><span class="n">TT_AUDIO</span><span class="p">);</span>
+
+            <span class="c1">// set index 0 of the first track</span>
+            <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetPregapStart</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+            <span class="c1">// set index 1 of the first track</span>
+            <span class="c1">// the data written in the zone between index 0 and index 1 will be 'hidden'</span>
+            <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetStart</span><span class="p">(</span><span class="n">hiddenSeconds</span> <span class="o">*</span> <span class="mi">75</span><span class="p">);</span>
+
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">len1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetEnd</span><span class="p">(</span><span class="n">pos</span><span class="p">);</span>
+            <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetPostgapEnd</span><span class="p">(</span><span class="n">pos</span><span class="p">);</span>
+
+            <span class="n">pSession</span><span class="o">-&gt;</span><span class="n">GetTracksRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">pTrack</span><span class="p">);</span>
+
+        <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+
+        <span class="n">audio</span><span class="o">-&gt;</span><span class="n">SetCDSession</span><span class="p">(</span><span class="n">pSession</span><span class="p">);</span>
+
+    <span class="n">pSession</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+
+    <span class="n">bool_t</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">audio</span><span class="o">-&gt;</span><span class="n">WriteToCD</span><span class="p">();</span>
+
+    <span class="n">audio</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Specifying a first track pre-gap that is longer than 3 seconds (<code class="language-plaintext highlighter-rouge">GetStart() - GetPregapStart() &gt; 75</code>) violates the Audio CD standard. Some computer drives are known to have problems recognizing such Audio CDs.</p>
+
+  
+    <hr>
+    <div id="disqus_thread"></div>
+    
+    <noscript>Please enable JavaScript to view comments.</noscript>
+  
+</article>
+
+
+
+<footer>
+  <div>&copy; Primo Software</div>
+  <nav><a aria-label="Mail" href="mailto:sales@primoburner.com" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a aria-label="Github" href="https://github.com/primoburner" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a><a aria-label="Subscribe" href="/feed.xml" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#rss"></use></svg></a></nav>
+
+</footer>
+
+
+</html>

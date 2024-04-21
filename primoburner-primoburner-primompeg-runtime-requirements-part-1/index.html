@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+<title>PrimoBurner, DVDBuilder and PrimoMpeg runtime requirements &amp;#8211; Part 1 | PrimoBurner</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Primo Software">
+<meta name="generator" content="Jekyll v4.3.3">
+<link rel="canonical" href="https://blog.primoburner.com/primoburner-primoburner-primompeg-runtime-requirements-part-1/">
+
+
+<link rel="stylesheet" href="/assets/css/frame.css">
+
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="PrimoBurner">
+
+
+
+<script src="//primoburner-blog.disqus.com/embed.js" async></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-25B50SV98X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-25B50SV98X');
+</script>
+
+</head>
+
+
+
+
+<header>
+  <a href="https://primoburner.com" class="title">PrimoBurner</a>
+  <nav><a aria-label="Home" href="https://primoburner.com/" ><span aria-hidden="true">Home</span></a><a aria-label="Blog" href="/" ><span aria-hidden="true">Blog</span></a><a aria-label="Archive" href="/archive/" ><span aria-hidden="true">Archive</span></a></nav>
+
+</header>
+
+<article>
+  <header>
+  <h1><a href="/primoburner-primoburner-primompeg-runtime-requirements-part-1/">PrimoBurner, DVDBuilder and PrimoMpeg runtime requirements &#8211; Part 1</a></h1><time datetime="2009-11-29T00:00:00-08:00">November 29, 2009</time>
+</header>
+
+  <p>PrimoBurner.NET and DVDBuilder.NET require specific VC runtime version to run.</p>
+
+<p>The installers (e.g. DVDBuilder.2.0.5.Net30.Demo.Setup.msi) already include theproper runtime, so PrimoBurner and DVDBuilder are guaranteed to work after installation.</p>
+
+<p>The following SDKs depend on <a href="http://www.microsoft.com/downloads/details.aspx?familyid=2051A0C1-C9B5-4B0A-A8F5-770A549FD78C&amp;displaylang=en&amp;noprocess">Microsoft.VC90.CRT version 9.0.30729.4148</a></p>
+
+<ul>
+  <li>PrimoBurner™ 3.0.4 for .NET Framework 3.0(32/64-bit)</li>
+  <li>DVDBuilder™ 2.0.5 for .NET Framework 3.0 (32/64-bit)</li>
+  <li>PrimoBurner™ 3.0.4 for .NET Framework 3.5(32/64-bit)</li>
+  <li>DVDBuilder™ 2.0.5 for .NET Framework 3.5 (32/64-bit)</li>
+</ul>
+
+<p>The following SDKs depend on <a href="http://www.microsoft.com/downloads/details.aspx?familyid=766A6AF7-EC73-40FF-B072-9112BAB119C2&amp;displaylang=en&amp;noprocess">Microsoft.VC80.CRT version 8.0.50727.4053</a></p>
+
+<ul>
+  <li>PrimoBurner™ 3.0.4 for .NET Framework 2.0 (32/64-bit)</li>
+  <li>DVDBuilder™ 2.0.5 for .NET Framework 2.0 (32/64-bit)</li>
+</ul>
+
+<p>If you have to distribute PrimoBurner or DVDBuilder separately you have to make sure that the proper VC (Visual C++)runtime is installed on the target machine. One way to do that is toinstall <code class="language-plaintext highlighter-rouge">vcredist_x64.exe</code> or <code class="language-plaintext highlighter-rouge">vcredist_x86.exe</code> from Microsoft.</p>
+
+<p>You can also use the <em>VC Redist</em> merge modules that come with Visual Studio.</p>
+
+  
+    <hr>
+    <div id="disqus_thread"></div>
+    
+    <noscript>Please enable JavaScript to view comments.</noscript>
+  
+</article>
+
+
+
+<footer>
+  <div>&copy; Primo Software</div>
+  <nav><a aria-label="Mail" href="mailto:sales@primoburner.com" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a aria-label="Github" href="https://github.com/primoburner" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a><a aria-label="Subscribe" href="/feed.xml" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#rss"></use></svg></a></nav>
+
+</footer>
+
+
+</html>

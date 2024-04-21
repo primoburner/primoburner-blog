@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+<title>PrimoBurner, DVDBuilder and PrimoMpeg runtime requirements &amp;#8211; Part 2 | PrimoBurner</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Primo Software">
+<meta name="generator" content="Jekyll v4.3.3">
+<link rel="canonical" href="https://blog.primoburner.com/primoburner-primoburner-primompeg-runtime-requirements-part-2/">
+
+
+<link rel="stylesheet" href="/assets/css/frame.css">
+
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="PrimoBurner">
+
+
+
+<script src="//primoburner-blog.disqus.com/embed.js" async></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-25B50SV98X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-25B50SV98X');
+</script>
+
+</head>
+
+
+
+
+<header>
+  <a href="https://primoburner.com" class="title">PrimoBurner</a>
+  <nav><a aria-label="Home" href="https://primoburner.com/" ><span aria-hidden="true">Home</span></a><a aria-label="Blog" href="/" ><span aria-hidden="true">Blog</span></a><a aria-label="Archive" href="/archive/" ><span aria-hidden="true">Archive</span></a></nav>
+
+</header>
+
+<article>
+  <header>
+  <h1><a href="/primoburner-primoburner-primompeg-runtime-requirements-part-2/">PrimoBurner, DVDBuilder and PrimoMpeg runtime requirements &#8211; Part 2</a></h1><time datetime="2009-01-12T00:00:00-08:00">January 12, 2009</time>
+</header>
+
+  <p>As it was stated in a <a href="http://blog.primoburner.com/primoburner-primoburner-primompeg-runtime-requirements-part-1">previous post</a>, the .NET versions of PrimoBurner, DVDBuilder and PrimoMpeg require a specific VC runtime on Windows.</p>
+
+<p>Each .NET assembly that we provide (PrimoBurner.NET.dll, DVDBuilder.NET.dll, PrimoMpeg.NET.dll) contains a manifest in whichthe requiredCRTis described. That CRT dependency is something that is not easily controlled as it is a consequence of several factors: Visual Studio version (20005/2008), VS service packs, Windows Updates andpre-processor #defines.</p>
+
+<p>So, instead of forcing a .NET assembly to link against a specific CRT version, we provide here the merge modules for the CRT that we use.</p>
+
+<p>The following CRT dependency list gives the required CRT version and the merge modules for our .NET products:</p>
+
+<p>For:</p>
+
+<ul>
+  <li>PrimoBurner 3.0.4 for .NET Framework 2.0</li>
+  <li>DVDBuilder 2.0.5 for .NET Framework 2.0</li>
+  <li>PrimoMpeg 1.0.5 for .NET Framework 2.0</li>
+</ul>
+
+<p>you should use the CRT8.0.50727.4053merge modules:</p>
+
+<ul>
+  <li>32-bit <a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.4053/Microsoft_VC80_CRT_x86.msm">runtime</a>, and <a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.4053/policy_8_0_Microsoft_VC80_CRT_x86.msm">policy</a>- 64-bit <a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.4053/Microsoft_VC80_CRT_x86_x64.msm">runtime</a>, and <a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.4053/policy_8_0_Microsoft_VC80_CRT_x86_x64.msm">policy</a></li>
+</ul>
+
+<p>For:</p>
+
+<ul>
+  <li>PrimoBurner 3.0.4 for .NET Framework 3.0/3.5</li>
+  <li>DVDBuilder 2.0.5 for .NET Framework 3.0/3.5</li>
+  <li>PrimoMpeg 1.0.5 for .NET Framework 3.0/3.5</li>
+</ul>
+
+<p>you should use the CRT9.0.30729.4148 merge modules:</p>
+
+<ul>
+  <li>32-bit <a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.4148/Microsoft_VC90_CRT_x86.msm">runtime</a>, and <a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.4148/policy_9_0_Microsoft_VC90_CRT_x86.msm">policy</a></li>
+  <li>64-bit <a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.4148/Microsoft_VC90_CRT_x86_x64.msm">runtime</a>, and <a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.4148/policy_9_0_Microsoft_VC90_CRT_x86_x64.msm">policy</a></li>
+</ul>
+
+<p>You are not required to use the policy (andwe don’t use it in our SDK installers). The policy merely redirects existing applications which use an older CRT to the currently installed version. This may help when a program uses 3rd-party components which have different CRT dependencies. In this case the application needs to provide only the highest CRT version that it uses and the corresponding policy. CRT redirection does not work between major versions (8.0.* and 9.0.*).</p>
+
+<p>It is much safer to include the appropriate CRT merge modules in the installer than using <code class="language-plaintext highlighter-rouge">vcredist_&lt;arch&gt;.exe</code>.It is safer because the merge modules use reference counting and this guarantees that the CRT won’t be removed from the system as long as the application is installed.</p>
+
+<p>On the other hand <code class="language-plaintext highlighter-rouge">VC Redist</code> does not use reference counting and it may be removed either by another misbehaving uninstaller or by the user(since the <code class="language-plaintext highlighter-rouge">VC Redist</code> entry is not related to the application entry). That may break existing applications.</p>
+
+  
+    <hr>
+    <div id="disqus_thread"></div>
+    
+    <noscript>Please enable JavaScript to view comments.</noscript>
+  
+</article>
+
+
+
+<footer>
+  <div>&copy; Primo Software</div>
+  <nav><a aria-label="Mail" href="mailto:sales@primoburner.com" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a aria-label="Github" href="https://github.com/primoburner" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a><a aria-label="Subscribe" href="/feed.xml" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#rss"></use></svg></a></nav>
+
+</footer>
+
+
+</html>

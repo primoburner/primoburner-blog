@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+<title>Blog | PrimoBurner</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Primo Software">
+<meta name="generator" content="Jekyll v4.3.3">
+<link rel="canonical" href="https://blog.primoburner.com/">
+
+
+<link rel="stylesheet" href="/assets/css/frame.css">
+
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="PrimoBurner">
+
+
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-25B50SV98X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-25B50SV98X');
+</script>
+
+</head>
+
+
+
+
+<header>
+  <a href="https://primoburner.com" class="title">PrimoBurner</a>
+  <nav><a aria-label="Home" href="https://primoburner.com/" ><span aria-hidden="true">Home</span></a><a aria-label="Blog" href="/" class="selected"><span aria-hidden="true">Blog</span></a><a aria-label="Archive" href="/archive/" ><span aria-hidden="true">Archive</span></a></nav>
+
+</header>
+
+
+  
+  <article>
+    <header>
+  <h1><a href="/minimum-os-requirements-and-runtime-dependencies-for-primoburner-net/">Minimum OS requirements and runtime dependencies for PrimoBurner .NET</a></h1><time datetime="2012-10-25T00:00:00-07:00">October 25, 2012</time>
+</header>
+
+    <h3 id="minimum-os-requirements">Minimum OS Requirements</h3>
+
+<ul>
+  <li>PrimoBurner on CLR4: Windows XP SP3 and .NET Framework 4.0</li>
+  <li>PrimoBurner on CLR2: Windows XP SP2 and .NET Framework 2.0</li>
+</ul>
+
+    <div class="more"><a href="/minimum-os-requirements-and-runtime-dependencies-for-primoburner-net/">read more</a></div>
+  </article>
+
+  <article>
+    <header>
+  <h1><a href="/create-hidden-track-beginning-audio-cd-part-2/">How to create a hidden track at the beginning of a CD &#8211; Part 2</a></h1><time datetime="2010-11-14T00:00:00-08:00">November 14, 2010</time>
+</header>
+
+    <p>PrimoBurnerSDK 3.5.6 introduced a new way for writing hidden tracks to audio CDs.</p>
+
+<p>Before 3.5.6 there would always be a digital silence of 2 seconds at the start of the pre-gap on the first track.</p>
+
+<p>Now PrimoBurner allows the first two seconds to be filled with audio too. All that needs to be done is to set the pre-gap start of the first track to -150. The following code shows how you can use the new feature:</p>
+
+    <div class="more"><a href="/create-hidden-track-beginning-audio-cd-part-2/">read more</a></div>
+  </article>
+
+  <article>
+    <header>
+  <h1><a href="/minimum-os-runtime-requirements-primoburner-3-5-x-net/">Minimum OS and Runtime Requirements for PrimoBurner 3.5.x for .NET</a></h1><time datetime="2010-09-21T00:00:00-07:00">September 21, 2010</time>
+</header>
+
+    <h2 id="minimum-os-requirements">Minimum OS Requirements</h2>
+
+<ul>
+  <li>PrimoBurner / .NET CLR4: Windows XP SP3 and .NET Framework 4.0</li>
+  <li>PrimoBurner / .NET CLR2: Windows XP SP2 and .NET Framework 2.0</li>
+</ul>
+
+    <div class="more"><a href="/minimum-os-runtime-requirements-primoburner-3-5-x-net/">read more</a></div>
+  </article>
+
+  <article>
+    <header>
+  <h1><a href="/procedure-entry-point-encodepointer-located-dynamic-link-library-kernel32-dll/">The procedure entry point EncodePointer could not be located in the dynamic link library KERNEL32.dll</a></h1><time datetime="2010-07-02T00:00:00-07:00">July 02, 2010</time>
+</header>
+
+    <p>When using PrimoBurner 3.5.3 on Windows XP with SP1 or lower you may receive the following error:</p>
+
+<p>“The procedure entry point EncodePointer could not be located in the dynamic link library KERNEL32.dll”</p>
+
+    <div class="more"><a href="/procedure-entry-point-encodepointer-located-dynamic-link-library-kernel32-dll/">read more</a></div>
+  </article>
+
+  <article>
+    <header>
+  <h1><a href="/create-hidden-track-beginning-audio-cd/">How to create a hidden track at the beginning of a CD</a></h1><time datetime="2010-06-25T00:00:00-07:00">June 25, 2010</time>
+</header>
+
+    <p>While PrimoBurner enforces a minimum pre-gap of 2 seconds at the beginning of an audio session, there is no restriction for the maximum length of the pre-gap, so it is possible to place an arbitrary audio content in the pre-gap of the first track.</p>
+
+<p>Such a layout will create a CD with the a “hidden track”. It is “hidden” because normally the only way to play it is by manually seeking to before the start of the first track.</p>
+
+    <div class="more"><a href="/create-hidden-track-beginning-audio-cd/">read more</a></div>
+  </article>
+
+  <article>
+    <header>
+  <h1><a href="/erase-dvdrw/">How to erase a DVD+RW</a></h1><time datetime="2010-06-15T00:00:00-07:00">June 15, 2010</time>
+</header>
+
+    <p>If you want to erase the contents of a DVD+RW media you should write 0s in the sectors that contain the data you want to erase. Here is the C# code:</p>
+
+    <div class="more"><a href="/erase-dvdrw/">read more</a></div>
+  </article>
+
+  <article>
+    <header>
+  <h1><a href="/primoburner-dependencies-ubuntu-linux/">PrimoBurner dependencies on Ubuntu Linux</a></h1><time datetime="2010-01-23T00:00:00-08:00">January 23, 2010</time>
+</header>
+
+    <p>This is just a quick list of the shared libraries that PrimoBurner requires on Ubuntu Linux.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">libhal</code></li>
+  <li><code class="language-plaintext highlighter-rouge">libdbus</code></li>
+  <li><code class="language-plaintext highlighter-rouge">libspeexdsp</code></li>
+</ul>
+
+    <div class="more"><a href="/primoburner-dependencies-ubuntu-linux/">read more</a></div>
+  </article>
+
+  <article>
+    <header>
+  <h1><a href="/primoburner-primoburner-primompeg-runtime-requirements-part-1/">PrimoBurner, DVDBuilder and PrimoMpeg runtime requirements &#8211; Part 1</a></h1><time datetime="2009-11-29T00:00:00-08:00">November 29, 2009</time>
+</header>
+
+    <p>PrimoBurner.NET and DVDBuilder.NET require specific VC runtime version to run.</p>
+
+<p>The installers (e.g. DVDBuilder.2.0.5.Net30.Demo.Setup.msi) already include theproper runtime, so PrimoBurner and DVDBuilder are guaranteed to work after installation.</p>
+
+    <div class="more"><a href="/primoburner-primoburner-primompeg-runtime-requirements-part-1/">read more</a></div>
+  </article>
+
+
+
+  <article>
+    
+    
+    <a href="/tag/runtime"><code class="highligher-rouge" style="font-size:15px;"><nobr>runtime</nobr></code></a>
+    <a href="/tag/.net"><code class="highligher-rouge" style="font-size:13px;"><nobr>.net</nobr></code></a>
+    <a href="/tag/hidden-track"><code class="highligher-rouge" style="font-size:12px;"><nobr>hidden-track</nobr></code></a>
+    <a href="/tag/audio-cd"><code class="highligher-rouge" style="font-size:12px;"><nobr>audio-cd</nobr></code></a>
+    <a href="/tag/PrimoMpeg"><code class="highligher-rouge" style="font-size:12px;"><nobr>PrimoMpeg</nobr></code></a>
+    <a href="/tag/DVDBuilder"><code class="highligher-rouge" style="font-size:12px;"><nobr>DVDBuilder</nobr></code></a>
+    <a href="/tag/windows"><code class="highligher-rouge" style="font-size:11px;"><nobr>windows</nobr></code></a>
+    <a href="/tag/ubuntu"><code class="highligher-rouge" style="font-size:11px;"><nobr>ubuntu</nobr></code></a>
+    <a href="/tag/linux"><code class="highligher-rouge" style="font-size:11px;"><nobr>linux</nobr></code></a>
+    <a href="/tag/dvd+rw"><code class="highligher-rouge" style="font-size:11px;"><nobr>dvd+rw</nobr></code></a>
+    <a href="/tag/c++"><code class="highligher-rouge" style="font-size:11px;"><nobr>c++</nobr></code></a>
+    
+  </article>
+  
+
+
+
+  <footer>
+    <span></span>
+    <span>page 1 of 2</span>
+    <a href="/page2">older posts »</a>
+  </footer>
+
+
+
+
+
+
+
+<footer>
+  <div>&copy; Primo Software</div>
+  <nav><a aria-label="Mail" href="mailto:sales@primoburner.com" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a aria-label="Github" href="https://github.com/primoburner" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a><a aria-label="Subscribe" href="/feed.xml" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#rss"></use></svg></a></nav>
+
+</footer>
+
+
+</html>

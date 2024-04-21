@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://blog.primoburner.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.primoburner.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-04-21T11:55:28-07:00</updated><id>https://blog.primoburner.com/feed.xml</id><title type="html">PrimoBurner</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Minimum OS requirements and runtime dependencies for PrimoBurner .NET</title><link href="https://blog.primoburner.com/minimum-os-requirements-and-runtime-dependencies-for-primoburner-net/" rel="alternate" type="text/html" title="Minimum OS requirements and runtime dependencies for PrimoBurner .NET" /><published>2012-10-25T00:00:00-07:00</published><updated>2012-10-25T00:00:00-07:00</updated><id>https://blog.primoburner.com/minimum-os-requirements-and-runtime-dependencies-for-primoburner-net</id><content type="html" xml:base="https://blog.primoburner.com/minimum-os-requirements-and-runtime-dependencies-for-primoburner-net/"><![CDATA[<h3 id="minimum-os-requirements">Minimum OS Requirements</h3>
+
+<ul>
+  <li>PrimoBurner on CLR4: Windows XP SP3 and .NET Framework 4.0</li>
+  <li>PrimoBurner on CLR2: Windows XP SP2 and .NET Framework 2.0</li>
+</ul>
+
+<h3 id="cc-runtime-crt-dependencies">C/C++ Runtime (CRT) Dependencies</h3>
+
+<ul>
+  <li>
+    <p>PrimoBurner.clr4.dll and PrimoBurner.clr4.x64.dll for Visual Studio 2010 depend on 
+<a href="http://www.microsoft.com/en-us/download/details.aspx?id=26999&amp;noprocess">Microsoft.VC100.CRT</a></p>
+  </li>
+  <li>
+    <p>PrimoBurner.clr2.dll and PrimoBurner.clr2.x64.dll for Visual Studio 2008 depend on 
+<a href="http://www.microsoft.com/en-us/download/details.aspx?id=26368&amp;noprocess">Microsoft.VC90.CRT, version 9.0.30729.6161</a></p>
+  </li>
+  <li>
+    <p>PrimoBurner.clr2.dll and PrimoBurner.clr2.x64.dll for Visual Studio 2005 depend on 
+<a href="http://www.microsoft.com/en-us/download/details.aspx?id=26347&amp;noprocess">Microsoft.VC80.CRT, version 8.0.50727.6195</a></p>
+  </li>
+</ul>
+
+<p>In your application, you can use vcredist_x86.exe and vcredist_x64.exe from the links provided above. However, a better solution will be toinclude the proper CRT merge module in your installer.That will guarantee that theCRT won’t be removed from the system. Also the merge modules are much smaller than the vcredist exes because the latterincludeother things besides the CRT.</p>
+
+<p>The links below are for the merge modules that are currently used in PrimoBurner.NET 3.6.5. Feel free to distribute these with your application:</p>
+
+<p>PB 3.6.5.CLR4.VC100 (10.0.x): <a href="http://download-blog.primosoftware.com/vc_crt/10.0/Microsoft_VC100_CRT_x86.msm">VC100_CRT_x86</a>, <a href="http://download-blog.primosoftware.com/vc_crt/10.0/Microsoft_VC100_CRT_x64.msm">VC100_CRT_x64</a></p>
+
+<p>PB 3.6.5.CLR2.VC90 (9.0.30729.6161): <a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.6161/Microsoft_VC90_CRT_x86.msm">VC90_CRT_x86</a>(<a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.6161/policy_9_0_Microsoft_VC90_CRT_x86.msm">policy</a>), <a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.6161/Microsoft_VC90_CRT_x86_x64.msm">VC90_CRT_x64</a>(<a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.6161/policy_9_0_Microsoft_VC90_CRT_x86_x64.msm">policy</a>)</p>
+
+<p>PB 3.6.5.CLR2.VC80 (8.0.50727.6195): <a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.6195/Microsoft_VC80_CRT_x86.msm">VC80_CRT_x86</a>(<a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.6195/policy_8_0_Microsoft_VC80_CRT_x86.msm">policy</a>), <a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.6195/Microsoft_VC80_CRT_x86_x64.msm">VC80_CRT_x64</a>(<a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.6195/policy_8_0_Microsoft_VC80_CRT_x86_x64.msm">policy</a>)</p>
+
+<p>Please note that policy is not mandatory. The policy merely redirects existing applications which use an older CRT to the currently installed version.</p>]]></content><author><name>Primo Software</name></author><category term=".net" /><category term="runtime" /><summary type="html"><![CDATA[Minimum OS Requirements PrimoBurner on CLR4: Windows XP SP3 and .NET Framework 4.0 PrimoBurner on CLR2: Windows XP SP2 and .NET Framework 2.0]]></summary></entry><entry><title type="html">How to create a hidden track at the beginning of a CD – Part 2</title><link href="https://blog.primoburner.com/create-hidden-track-beginning-audio-cd-part-2/" rel="alternate" type="text/html" title="How to create a hidden track at the beginning of a CD – Part 2" /><published>2010-11-14T00:00:00-08:00</published><updated>2010-11-14T00:00:00-08:00</updated><id>https://blog.primoburner.com/create-hidden-track-beginning-audio-cd-part-2</id><content type="html" xml:base="https://blog.primoburner.com/create-hidden-track-beginning-audio-cd-part-2/"><![CDATA[<p>PrimoBurnerSDK 3.5.6 introduced a new way for writing hidden tracks to audio CDs.</p>
+
+<p>Before 3.5.6 there would always be a digital silence of 2 seconds at the start of the pre-gap on the first track.</p>
+
+<p>Now PrimoBurner allows the first two seconds to be filled with audio too. All that needs to be done is to set the pre-gap start of the first track to -150. The following code shows how you can use the new feature:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">WriteToCD_HiddenTrack_With_User_Data_In_First_2seconds</span><span class="p">(</span><span class="kt">char</span> <span class="n">driveLetter</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">IEngine</span> <span class="o">*</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">Library</span><span class="o">::</span><span class="n">CreateEngine</span><span class="p">();</span>
+    <span class="n">engine</span><span class="o">-&gt;</span><span class="n">Initialize</span><span class="p">();</span>
+
+    <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="n">Library</span><span class="o">::</span><span class="n">GetCDROMIndexFromLetter</span><span class="p">(</span><span class="n">driveLetter</span><span class="p">);</span>
+
+    <span class="n">IDeviceEnum</span> <span class="o">*</span> <span class="n">devices</span> <span class="o">=</span> <span class="n">engine</span><span class="o">-&gt;</span><span class="n">GetDevices</span><span class="p">();</span>
+    <span class="n">IDevice</span><span class="o">*</span> <span class="n">dev</span> <span class="o">=</span> <span class="n">devices</span><span class="o">-&gt;</span><span class="n">GetItem</span><span class="p">(</span><span class="n">deviceIndex</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="n">IAudioCD</span><span class="o">*</span> <span class="n">audio</span> <span class="o">=</span> <span class="n">Library</span><span class="o">::</span><span class="n">CreateAudioCD</span><span class="p">();</span>
+    <span class="n">audio</span><span class="o">-&gt;</span><span class="n">SetDevice</span><span class="p">(</span><span class="n">dev</span><span class="p">);</span>
+    <span class="n">audio</span><span class="o">-&gt;</span><span class="n">SetAudioDecodingMethod</span><span class="p">(</span><span class="n">ADM_MEMORY</span><span class="p">);</span>
+
+    <span class="n">char_t</span><span class="o">*</span> <span class="n">inputPath</span> <span class="o">=</span> <span class="n">_T</span><span class="p">(</span><span class="s">"C:sample.wav"</span><span class="p">);</span>
+
+    <span class="n">IAudioInput</span><span class="o">*</span> <span class="n">ain</span> <span class="o">=</span> <span class="n">Library</span><span class="o">::</span><span class="n">CreateAudioInput</span><span class="p">();</span>
+    <span class="n">ain</span><span class="o">-&gt;</span><span class="n">SetFilePath</span><span class="p">(</span><span class="n">inputPath</span><span class="p">);</span>
+
+    <span class="n">bool_t</span> <span class="n">res</span> <span class="o">=</span> <span class="n">audio</span><span class="o">-&gt;</span><span class="n">GetAudioInputsRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">ain</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">res</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// failed to add audio input</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Leave AudioCD to be the single owner the IAudioInput instance</span>
+    <span class="n">ain</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+    <span class="n">ain</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+    <span class="kt">int32_t</span> <span class="n">len1</span> <span class="o">=</span> <span class="n">audio</span><span class="o">-&gt;</span><span class="n">GetInputLength</span><span class="p">(</span><span class="n">audio</span><span class="o">-&gt;</span><span class="n">GetAudioInputsRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetItemRef</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+
+    <span class="c1">// It is essential that the audio input should be 2 seconds longer than usual,</span>
+    <span class="c1">// since the first 150 frames(blocks) of the input will be written in the 2s pregap</span>
+    <span class="c1">// that is usually filled with digital silence</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"audio frames: %d"</span><span class="p">,</span> <span class="n">len1</span><span class="p">);</span>
+
+    <span class="n">ICDSession</span><span class="o">*</span> <span class="n">pSession</span> <span class="o">=</span> <span class="n">Library</span><span class="o">::</span><span class="n">CreateCDSession</span><span class="p">();</span>
+    <span class="n">pSession</span><span class="o">-&gt;</span><span class="n">SetType</span><span class="p">(</span><span class="n">ST_CDDA</span><span class="p">);</span>
+
+    <span class="n">ICDTrack</span><span class="o">*</span> <span class="n">pTrack</span> <span class="o">=</span> <span class="n">Library</span><span class="o">::</span><span class="n">CreateCDTrack</span><span class="p">();</span>
+    <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetType</span><span class="p">(</span><span class="n">TT_AUDIO</span><span class="p">);</span>
+
+    <span class="c1">// CD_PREGAP_START equals -150 - this will allow you to write user data in </span>
+    <span class="c1">// the first 2 seconds of the pregap as well</span>
+    <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetPregapStart</span><span class="p">(</span><span class="n">CD_PREGAP_START</span><span class="p">);</span>
+
+    <span class="c1">// Just leave the first 2 seconds as the intended pregap (hidden track) and continue</span>
+    <span class="c1">// from address 0 with the rest of the audio input data</span>
+    <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetStart</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+    <span class="kt">int32_t</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">len1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// Since the first two seconds of the audio input will be in the pregap,</span>
+    <span class="c1">// then the actual end is CD_PREGAP_LENGTH blocks earlier as well.</span>
+    <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetEnd</span><span class="p">(</span><span class="n">pos</span> <span class="o">-</span> <span class="n">CD_PREGAP_LENGTH</span><span class="p">);</span>
+
+    <span class="c1">// The same goes for the postgap</span>
+    <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetPostgapEnd</span><span class="p">(</span><span class="n">pos</span> <span class="o">-</span> <span class="n">CD_PREGAP_LENGTH</span><span class="p">);</span>
+    <span class="n">pSession</span><span class="o">-&gt;</span><span class="n">GetTracksRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">pTrack</span><span class="p">);</span>
+    <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+
+    <span class="n">audio</span><span class="o">-&gt;</span><span class="n">SetCDSession</span><span class="p">(</span><span class="n">pSession</span><span class="p">);</span>
+
+    <span class="n">pSession</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+
+    <span class="n">res</span> <span class="o">=</span> <span class="n">audio</span><span class="o">-&gt;</span><span class="n">WriteToCD</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">res</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"n last error: 0x%x  n "</span><span class="p">,</span> <span class="n">audio</span><span class="o">-&gt;</span><span class="n">GetLastError</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="n">audio</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+
+    <span class="n">dev</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+    <span class="n">devices</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+
+    <span class="n">engine</span><span class="o">-&gt;</span><span class="n">Shutdown</span><span class="p">();</span>
+    <span class="n">engine</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Note the <code class="language-plaintext highlighter-rouge">CD_PREGAP_START</code> constant – it is a negative value and equals -150. Using a pre-gap start value other than -150 and less then 0 will result in <code class="language-plaintext highlighter-rouge">AUDIOCD_INVALID_CD_SESSION</code> error.</p>
+
+<p>By default PrimoBurner SDK ensures that the audio inputs could provide at least 4 seconds of data. Any inputs that are shorter will have trailing silence added when burned to the disc.</p>
+
+<p>There is a new <code class="language-plaintext highlighter-rouge">IAudioInput::SetForceMinTrackLength</code> method that controls that behavior. If you have to create a track from small audio segments call <code class="language-plaintext highlighter-rouge">SetForceMinTrackLength(FALSE)</code> to disable the track length validation.</p>]]></content><author><name>Primo Software</name></author><category term="audio-cd" /><category term="hidden-track" /><summary type="html"><![CDATA[PrimoBurnerSDK 3.5.6 introduced a new way for writing hidden tracks to audio CDs. Before 3.5.6 there would always be a digital silence of 2 seconds at the start of the pre-gap on the first track. Now PrimoBurner allows the first two seconds to be filled with audio too. All that needs to be done is to set the pre-gap start of the first track to -150. The following code shows how you can use the new feature:]]></summary></entry><entry><title type="html">Minimum OS and Runtime Requirements for PrimoBurner 3.5.x for .NET</title><link href="https://blog.primoburner.com/minimum-os-runtime-requirements-primoburner-3-5-x-net/" rel="alternate" type="text/html" title="Minimum OS and Runtime Requirements for PrimoBurner 3.5.x for .NET" /><published>2010-09-21T00:00:00-07:00</published><updated>2010-09-21T00:00:00-07:00</updated><id>https://blog.primoburner.com/minimum-os-runtime-requirements-primoburner-3-5-x-net</id><content type="html" xml:base="https://blog.primoburner.com/minimum-os-runtime-requirements-primoburner-3-5-x-net/"><![CDATA[<h2 id="minimum-os-requirements">Minimum OS Requirements</h2>
+
+<ul>
+  <li>PrimoBurner / .NET CLR4: Windows XP SP3 and .NET Framework 4.0</li>
+  <li>PrimoBurner / .NET CLR2: Windows XP SP2 and .NET Framework 2.0</li>
+</ul>
+
+<h2 id="cc-runtime-crt-dependencies">C/C++ Runtime (CRT) Dependencies</h2>
+
+<h4 id="visual-studio-2010--net-clr4">Visual Studio 2010 / .NET CLR4</h4>
+
+<p><code class="language-plaintext highlighter-rouge">PrimoBurner.clr4.dll</code> and <code class="language-plaintext highlighter-rouge">PrimoBurner.clr4.x64.dll</code> require <a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=a7b7a05e-6de6-4d3a-a423-37bf0912db84&amp;noprocess">Microsoft.VC100.CRT.x86</a> and <a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=bd512d9e-43c8-4655-81bf-9350143d5867&amp;noprocess">Microsoft.VC100.CRT.x64</a>.</p>
+
+<h4 id="visual-studio-2008--net-clr2">Visual Studio 2008 / .NET CLR2</h4>
+
+<p><code class="language-plaintext highlighter-rouge">PrimoBurner.clr2.dll</code> and <code class="language-plaintext highlighter-rouge">PrimoBurner.clr2.x64.dll</code> that are installed with <code class="language-plaintext highlighter-rouge">PrimoBurner.3.5.1.CLR2.VC90</code> and <code class="language-plaintext highlighter-rouge">PrimoBurner_x64.3.5.1.CLR2.VC90</code> setup packages, require <a href="http://www.microsoft.com/downloads/details.aspx?familyid=2051A0C1-C9B5-4B0A-A8F5-770A549FD78C&amp;displaylang=en&amp;noprocess">Microsoft.VC90.CRT, version 9.0.30729.4148</a>.</p>
+
+<h4 id="visual-studio-2005--net-clr2">Visual Studio 2005 / .NET CLR2</h4>
+
+<p><code class="language-plaintext highlighter-rouge">PrimoBurner.clr2.dll</code> and <code class="language-plaintext highlighter-rouge">PrimoBurner.clr2.x64.dll</code> that are installed with <code class="language-plaintext highlighter-rouge">PrimoBurner.3.5.1.CLR2.VC80</code> and <code class="language-plaintext highlighter-rouge">PrimoBurner_x64.3.5.1.CLR2.VC80</code> setup packages, require <a href="http://www.microsoft.com/downloads/details.aspx?familyid=766A6AF7-EC73-40FF-B072-9112BAB119C2&amp;displaylang=en&amp;noprocess">Microsoft.VC80.CRT, version 8.0.50727.4053</a>.</p>
+
+<p>The PrimoBurner.NET setup packages already include and install the proper CRT.</p>
+
+<p>If the PrimoBurner assembly is not installed via the PrimoBurner SDK setup, the correct version of the CRT must be installed on the target machine. One way to do that is to use the VC++ redistributables (vcredist_x86.exe and vcredist_x64.exe) from the links provided above.</p>]]></content><author><name>Primo Software</name></author><category term=".net" /><category term="runtime" /><summary type="html"><![CDATA[Minimum OS Requirements PrimoBurner / .NET CLR4: Windows XP SP3 and .NET Framework 4.0 PrimoBurner / .NET CLR2: Windows XP SP2 and .NET Framework 2.0]]></summary></entry><entry><title type="html">The procedure entry point EncodePointer could not be located in the dynamic link library KERNEL32.dll</title><link href="https://blog.primoburner.com/procedure-entry-point-encodepointer-located-dynamic-link-library-kernel32-dll/" rel="alternate" type="text/html" title="The procedure entry point EncodePointer could not be located in the dynamic link library KERNEL32.dll" /><published>2010-07-02T00:00:00-07:00</published><updated>2010-07-02T00:00:00-07:00</updated><id>https://blog.primoburner.com/procedure-entry-point-encodepointer-located-dynamic-link-library-kernel32-dll</id><content type="html" xml:base="https://blog.primoburner.com/procedure-entry-point-encodepointer-located-dynamic-link-library-kernel32-dll/"><![CDATA[<p>When using PrimoBurner 3.5.3 on Windows XP with SP1 or lower you may receive the following error:</p>
+
+<p>“The procedure entry point EncodePointer could not be located in the dynamic link library KERNEL32.dll”</p>
+
+<p>This is due to the fact that PrimoBurner 3.5.3 uses the VC runtime that comes with Visual Studio 2010 which in turn uses some API functions that are present only in Windows XP SP2 and above.</p>
+
+<p>For more information please see:<a href="http://support.microsoft.com/kb/2005279">http://support.microsoft.com/kb/2005279</a></p>]]></content><author><name>Primo Software</name></author><category term="windows" /><summary type="html"><![CDATA[When using PrimoBurner 3.5.3 on Windows XP with SP1 or lower you may receive the following error: “The procedure entry point EncodePointer could not be located in the dynamic link library KERNEL32.dll”]]></summary></entry><entry><title type="html">How to create a hidden track at the beginning of a CD</title><link href="https://blog.primoburner.com/create-hidden-track-beginning-audio-cd/" rel="alternate" type="text/html" title="How to create a hidden track at the beginning of a CD" /><published>2010-06-25T00:00:00-07:00</published><updated>2010-06-25T00:00:00-07:00</updated><id>https://blog.primoburner.com/create-hidden-track-beginning-audio-cd</id><content type="html" xml:base="https://blog.primoburner.com/create-hidden-track-beginning-audio-cd/"><![CDATA[<p>While PrimoBurner enforces a minimum pre-gap of 2 seconds at the beginning of an audio session, there is no restriction for the maximum length of the pre-gap, so it is possible to place an arbitrary audio content in the pre-gap of the first track.</p>
+
+<p>Such a layout will create a CD with the a “hidden track”. It is “hidden” because normally the only way to play it is by manually seeking to before the start of the first track.</p>
+
+<p>The following code uses <a href="http://doc.primoburner.com/legacy/help/cpp/3.6.1/primo__burner__ICDTrack.html">ICDTrack</a> to create an audio CD with a 23 second “hidden” track:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">IAudioInput</span><span class="o">*</span> <span class="nf">AddFileInput</span><span class="p">(</span><span class="n">IAudioCD</span><span class="o">*</span> <span class="n">pAudio</span><span class="p">,</span> <span class="n">char_t</span><span class="o">*</span> <span class="n">pFilePath</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">IAudioInput</span><span class="o">*</span> <span class="n">ain</span> <span class="o">=</span> <span class="n">Library</span><span class="o">::</span><span class="n">CreateAudioInput</span><span class="p">();</span>
+
+        <span class="n">ain</span><span class="o">-&gt;</span><span class="n">SetFilePath</span><span class="p">(</span><span class="n">pFilePath</span><span class="p">);</span>
+
+        <span class="n">bool_t</span> <span class="n">res</span> <span class="o">=</span> <span class="n">pAudio</span><span class="o">-&gt;</span><span class="n">GetAudioInputsRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">ain</span><span class="p">);</span>
+
+    <span class="c1">// leaves AudioCD to be the single owner the IAudioInput instance</span>
+    <span class="n">ain</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span> 
+
+    <span class="k">return</span> <span class="n">ain</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">WriteToCD_HiddenTrack_Simple</span><span class="p">(</span><span class="n">IAudioCD</span> <span class="o">*</span><span class="n">pAudio</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// the number of seconds to be 'hidden' in the first audio track</span>
+    <span class="kt">int</span> <span class="n">hiddenSeconds</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+
+    <span class="n">AddFileInput</span><span class="p">(</span><span class="n">pAudio</span><span class="p">,</span> <span class="s">L"my_file.wav"</span><span class="p">);</span>
+
+    <span class="c1">// calculate the length of the first audio track</span>
+    <span class="kt">int32_t</span> <span class="n">len1</span> <span class="o">=</span> <span class="n">audio</span><span class="o">-&gt;</span><span class="n">GetInputLength</span><span class="p">(</span><span class="n">audio</span><span class="o">-&gt;</span><span class="n">GetAudioInputsRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetItemRef</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+
+    <span class="n">ICDSession</span><span class="o">*</span> <span class="n">pSession</span> <span class="o">=</span> <span class="n">Library</span><span class="o">::</span><span class="n">CreateCDSession</span><span class="p">();</span>
+
+        <span class="n">pSession</span><span class="o">-&gt;</span><span class="n">SetType</span><span class="p">(</span><span class="n">ST_CDDA</span><span class="p">);</span>
+        <span class="kt">int32_t</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="n">ICDTrack</span><span class="o">*</span> <span class="n">pTrack</span> <span class="o">=</span> <span class="n">Library</span><span class="o">::</span><span class="n">CreateCDTrack</span><span class="p">();</span>
+
+            <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetType</span><span class="p">(</span><span class="n">TT_AUDIO</span><span class="p">);</span>
+
+            <span class="c1">// set index 0 of the first track</span>
+            <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetPregapStart</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+            <span class="c1">// set index 1 of the first track</span>
+            <span class="c1">// the data written in the zone between index 0 and index 1 will be 'hidden'</span>
+            <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetStart</span><span class="p">(</span><span class="n">hiddenSeconds</span> <span class="o">*</span> <span class="mi">75</span><span class="p">);</span>
+
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">len1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetEnd</span><span class="p">(</span><span class="n">pos</span><span class="p">);</span>
+            <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">SetPostgapEnd</span><span class="p">(</span><span class="n">pos</span><span class="p">);</span>
+
+            <span class="n">pSession</span><span class="o">-&gt;</span><span class="n">GetTracksRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">pTrack</span><span class="p">);</span>
+
+        <span class="n">pTrack</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+
+        <span class="n">audio</span><span class="o">-&gt;</span><span class="n">SetCDSession</span><span class="p">(</span><span class="n">pSession</span><span class="p">);</span>
+
+    <span class="n">pSession</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+
+    <span class="n">bool_t</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">audio</span><span class="o">-&gt;</span><span class="n">WriteToCD</span><span class="p">();</span>
+
+    <span class="n">audio</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Specifying a first track pre-gap that is longer than 3 seconds (<code class="language-plaintext highlighter-rouge">GetStart() - GetPregapStart() &gt; 75</code>) violates the Audio CD standard. Some computer drives are known to have problems recognizing such Audio CDs.</p>]]></content><author><name>Primo Software</name></author><category term="audio-cd" /><category term="hidden-track" /><summary type="html"><![CDATA[While PrimoBurner enforces a minimum pre-gap of 2 seconds at the beginning of an audio session, there is no restriction for the maximum length of the pre-gap, so it is possible to place an arbitrary audio content in the pre-gap of the first track. Such a layout will create a CD with the a “hidden track”. It is “hidden” because normally the only way to play it is by manually seeking to before the start of the first track.]]></summary></entry><entry><title type="html">How to erase a DVD+RW</title><link href="https://blog.primoburner.com/erase-dvdrw/" rel="alternate" type="text/html" title="How to erase a DVD+RW" /><published>2010-06-15T00:00:00-07:00</published><updated>2010-06-15T00:00:00-07:00</updated><id>https://blog.primoburner.com/erase-dvdrw</id><content type="html" xml:base="https://blog.primoburner.com/erase-dvdrw/"><![CDATA[<p>If you want to erase the contents of a DVD+RW media you should write 0s in the sectors that contain the data you want to erase. Here is the C# code:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// TODO: Initialize the device variable using PrimoSoftware.Burner.DeviceEnumerator object</span>
+<span class="n">PrimoSoftware</span><span class="p">.</span><span class="n">Burner</span><span class="p">.</span><span class="n">Device</span> <span class="n">device</span><span class="p">;</span>
+
+<span class="c1">// Set this variable with the desired number of blocks to fill with 0s.</span>
+<span class="c1">// 2000 blocks are enough to erase the ISO and UDF file system descriptors</span>
+<span class="c1">// from the target medium.</span>
+<span class="kt">long</span> <span class="n">blocksToWrite</span> <span class="p">=</span> <span class="m">2000</span><span class="p">;</span>
+<span class="n">device</span><span class="p">.</span><span class="nf">StartDVDSession</span><span class="p">(</span><span class="k">false</span><span class="p">,</span> <span class="n">WriteMethod</span><span class="p">.</span><span class="n">DvdIncremental</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+
+<span class="c1">// Start writing 0s from the first block on the target medium</span>
+<span class="n">device</span><span class="p">.</span><span class="n">NewSessionStartAddress</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="n">device</span><span class="p">.</span><span class="nf">StartDVDTrack</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">blocksToWrite</span><span class="p">));</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">writeChunk</span> <span class="p">=</span> <span class="m">32</span><span class="p">;</span>
+
+<span class="c1">// Create a data buffer filled with 0s that will be written repeatedly on the target medium</span>
+<span class="kt">byte</span><span class="p">[]</span> <span class="n">dummyBuffer</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="n">writeChunk</span> <span class="p">*</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">BlockSize</span><span class="p">.</span><span class="n">Dvd</span><span class="p">];</span>
+
+<span class="kt">long</span> <span class="n">lAddrBuf1</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="kt">long</span> <span class="n">lAddrBuf2</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">buf1Size</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">buf2Size</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">blocks</span> <span class="p">=</span> <span class="n">blocksToWrite</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">blocksChunk</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+<span class="c1">// Perform the actual writing</span>
+<span class="k">while</span> <span class="p">((</span><span class="n">blocksChunk</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Min</span><span class="p">(</span><span class="n">blocks</span><span class="p">,</span> <span class="n">writeChunk</span><span class="p">))</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">buf1Size</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="n">buf2Size</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="n">device</span><span class="p">.</span><span class="nf">LockOutputBuffer</span><span class="p">(</span><span class="n">blocksChunk</span><span class="p">,</span> 
+                            <span class="k">out</span> <span class="n">lAddrBuf1</span><span class="p">,</span> <span class="k">out</span> <span class="n">buf1Size</span><span class="p">,</span> 
+                            <span class="k">out</span> <span class="n">lAddrBuf2</span><span class="p">,</span> <span class="k">out</span> <span class="n">buf2Size</span><span class="p">);</span>
+
+    <span class="c1">// TODO: Copy the content from dummyBuffer into the memory pointed to by lAddrBuf1 and lAddrBuf2</span>
+
+    <span class="n">device</span><span class="p">.</span><span class="nf">UnlockOutputBuffer</span><span class="p">(</span><span class="n">blocksChunk</span><span class="p">);</span>
+    <span class="n">blocks</span> <span class="p">-=</span> <span class="n">blocksChunk</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">device</span><span class="p">.</span><span class="nf">EndDVDTrack</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="n">device</span><span class="p">.</span><span class="nf">EndDVDSession</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+</code></pre></div></div>]]></content><author><name>Primo Software</name></author><category term=".net" /><category term="dvd+rw" /><summary type="html"><![CDATA[If you want to erase the contents of a DVD+RW media you should write 0s in the sectors that contain the data you want to erase. Here is the C# code:]]></summary></entry><entry><title type="html">PrimoBurner dependencies on Ubuntu Linux</title><link href="https://blog.primoburner.com/primoburner-dependencies-ubuntu-linux/" rel="alternate" type="text/html" title="PrimoBurner dependencies on Ubuntu Linux" /><published>2010-01-23T00:00:00-08:00</published><updated>2010-01-23T00:00:00-08:00</updated><id>https://blog.primoburner.com/primoburner-dependencies-ubuntu-linux</id><content type="html" xml:base="https://blog.primoburner.com/primoburner-dependencies-ubuntu-linux/"><![CDATA[<p>This is just a quick list of the shared libraries that PrimoBurner requires on Ubuntu Linux.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">libhal</code></li>
+  <li><code class="language-plaintext highlighter-rouge">libdbus</code></li>
+  <li><code class="language-plaintext highlighter-rouge">libspeexdsp</code></li>
+</ul>]]></content><author><name>Primo Software</name></author><category term="c++" /><category term="linux" /><category term="ubuntu" /><category term="runtime" /><summary type="html"><![CDATA[This is just a quick list of the shared libraries that PrimoBurner requires on Ubuntu Linux. libhal libdbus libspeexdsp]]></summary></entry><entry><title type="html">PrimoBurner, DVDBuilder and PrimoMpeg runtime requirements – Part 1</title><link href="https://blog.primoburner.com/primoburner-primoburner-primompeg-runtime-requirements-part-1/" rel="alternate" type="text/html" title="PrimoBurner, DVDBuilder and PrimoMpeg runtime requirements – Part 1" /><published>2009-11-29T00:00:00-08:00</published><updated>2009-11-29T00:00:00-08:00</updated><id>https://blog.primoburner.com/primoburner-primoburner-primompeg-runtime-requirements-part-1</id><content type="html" xml:base="https://blog.primoburner.com/primoburner-primoburner-primompeg-runtime-requirements-part-1/"><![CDATA[<p>PrimoBurner.NET and DVDBuilder.NET require specific VC runtime version to run.</p>
+
+<p>The installers (e.g. DVDBuilder.2.0.5.Net30.Demo.Setup.msi) already include theproper runtime, so PrimoBurner and DVDBuilder are guaranteed to work after installation.</p>
+
+<p>The following SDKs depend on <a href="http://www.microsoft.com/downloads/details.aspx?familyid=2051A0C1-C9B5-4B0A-A8F5-770A549FD78C&amp;displaylang=en&amp;noprocess">Microsoft.VC90.CRT version 9.0.30729.4148</a></p>
+
+<ul>
+  <li>PrimoBurner™ 3.0.4 for .NET Framework 3.0(32/64-bit)</li>
+  <li>DVDBuilder™ 2.0.5 for .NET Framework 3.0 (32/64-bit)</li>
+  <li>PrimoBurner™ 3.0.4 for .NET Framework 3.5(32/64-bit)</li>
+  <li>DVDBuilder™ 2.0.5 for .NET Framework 3.5 (32/64-bit)</li>
+</ul>
+
+<p>The following SDKs depend on <a href="http://www.microsoft.com/downloads/details.aspx?familyid=766A6AF7-EC73-40FF-B072-9112BAB119C2&amp;displaylang=en&amp;noprocess">Microsoft.VC80.CRT version 8.0.50727.4053</a></p>
+
+<ul>
+  <li>PrimoBurner™ 3.0.4 for .NET Framework 2.0 (32/64-bit)</li>
+  <li>DVDBuilder™ 2.0.5 for .NET Framework 2.0 (32/64-bit)</li>
+</ul>
+
+<p>If you have to distribute PrimoBurner or DVDBuilder separately you have to make sure that the proper VC (Visual C++)runtime is installed on the target machine. One way to do that is toinstall <code class="language-plaintext highlighter-rouge">vcredist_x64.exe</code> or <code class="language-plaintext highlighter-rouge">vcredist_x86.exe</code> from Microsoft.</p>
+
+<p>You can also use the <em>VC Redist</em> merge modules that come with Visual Studio.</p>]]></content><author><name>Primo Software</name></author><category term="DVDBuilder" /><category term="PrimoMpeg" /><category term="runtime" /><summary type="html"><![CDATA[PrimoBurner.NET and DVDBuilder.NET require specific VC runtime version to run. The installers (e.g. DVDBuilder.2.0.5.Net30.Demo.Setup.msi) already include theproper runtime, so PrimoBurner and DVDBuilder are guaranteed to work after installation.]]></summary></entry><entry><title type="html">PrimoBurner, DVDBuilder and PrimoMpeg runtime requirements – Part 2</title><link href="https://blog.primoburner.com/primoburner-primoburner-primompeg-runtime-requirements-part-2/" rel="alternate" type="text/html" title="PrimoBurner, DVDBuilder and PrimoMpeg runtime requirements – Part 2" /><published>2009-01-12T00:00:00-08:00</published><updated>2009-01-12T00:00:00-08:00</updated><id>https://blog.primoburner.com/primoburner-primoburner-primompeg-runtime-requirements-part-2</id><content type="html" xml:base="https://blog.primoburner.com/primoburner-primoburner-primompeg-runtime-requirements-part-2/"><![CDATA[<p>As it was stated in a <a href="http://blog.primoburner.com/primoburner-primoburner-primompeg-runtime-requirements-part-1">previous post</a>, the .NET versions of PrimoBurner, DVDBuilder and PrimoMpeg require a specific VC runtime on Windows.</p>
+
+<p>Each .NET assembly that we provide (PrimoBurner.NET.dll, DVDBuilder.NET.dll, PrimoMpeg.NET.dll) contains a manifest in whichthe requiredCRTis described. That CRT dependency is something that is not easily controlled as it is a consequence of several factors: Visual Studio version (20005/2008), VS service packs, Windows Updates andpre-processor #defines.</p>
+
+<p>So, instead of forcing a .NET assembly to link against a specific CRT version, we provide here the merge modules for the CRT that we use.</p>
+
+<p>The following CRT dependency list gives the required CRT version and the merge modules for our .NET products:</p>
+
+<p>For:</p>
+
+<ul>
+  <li>PrimoBurner 3.0.4 for .NET Framework 2.0</li>
+  <li>DVDBuilder 2.0.5 for .NET Framework 2.0</li>
+  <li>PrimoMpeg 1.0.5 for .NET Framework 2.0</li>
+</ul>
+
+<p>you should use the CRT8.0.50727.4053merge modules:</p>
+
+<ul>
+  <li>32-bit <a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.4053/Microsoft_VC80_CRT_x86.msm">runtime</a>, and <a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.4053/policy_8_0_Microsoft_VC80_CRT_x86.msm">policy</a>- 64-bit <a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.4053/Microsoft_VC80_CRT_x86_x64.msm">runtime</a>, and <a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.4053/policy_8_0_Microsoft_VC80_CRT_x86_x64.msm">policy</a></li>
+</ul>
+
+<p>For:</p>
+
+<ul>
+  <li>PrimoBurner 3.0.4 for .NET Framework 3.0/3.5</li>
+  <li>DVDBuilder 2.0.5 for .NET Framework 3.0/3.5</li>
+  <li>PrimoMpeg 1.0.5 for .NET Framework 3.0/3.5</li>
+</ul>
+
+<p>you should use the CRT9.0.30729.4148 merge modules:</p>
+
+<ul>
+  <li>32-bit <a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.4148/Microsoft_VC90_CRT_x86.msm">runtime</a>, and <a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.4148/policy_9_0_Microsoft_VC90_CRT_x86.msm">policy</a></li>
+  <li>64-bit <a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.4148/Microsoft_VC90_CRT_x86_x64.msm">runtime</a>, and <a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.4148/policy_9_0_Microsoft_VC90_CRT_x86_x64.msm">policy</a></li>
+</ul>
+
+<p>You are not required to use the policy (andwe don’t use it in our SDK installers). The policy merely redirects existing applications which use an older CRT to the currently installed version. This may help when a program uses 3rd-party components which have different CRT dependencies. In this case the application needs to provide only the highest CRT version that it uses and the corresponding policy. CRT redirection does not work between major versions (8.0.* and 9.0.*).</p>
+
+<p>It is much safer to include the appropriate CRT merge modules in the installer than using <code class="language-plaintext highlighter-rouge">vcredist_&lt;arch&gt;.exe</code>.It is safer because the merge modules use reference counting and this guarantees that the CRT won’t be removed from the system as long as the application is installed.</p>
+
+<p>On the other hand <code class="language-plaintext highlighter-rouge">VC Redist</code> does not use reference counting and it may be removed either by another misbehaving uninstaller or by the user(since the <code class="language-plaintext highlighter-rouge">VC Redist</code> entry is not related to the application entry). That may break existing applications.</p>]]></content><author><name>Primo Software</name></author><category term="DVDBuilder" /><category term="PrimoMpeg" /><category term="runtime" /><summary type="html"><![CDATA[As it was stated in a previous post, the .NET versions of PrimoBurner, DVDBuilder and PrimoMpeg require a specific VC runtime on Windows.]]></summary></entry></feed>

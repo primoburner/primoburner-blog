@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+<title>Minimum OS requirements and runtime dependencies for PrimoBurner .NET | PrimoBurner</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Primo Software">
+<meta name="generator" content="Jekyll v4.3.3">
+<link rel="canonical" href="https://blog.primoburner.com/minimum-os-requirements-and-runtime-dependencies-for-primoburner-net/">
+
+
+<link rel="stylesheet" href="/assets/css/frame.css">
+
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="PrimoBurner">
+
+
+
+<script src="//primoburner-blog.disqus.com/embed.js" async></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-25B50SV98X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-25B50SV98X');
+</script>
+
+</head>
+
+
+
+
+<header>
+  <a href="https://primoburner.com" class="title">PrimoBurner</a>
+  <nav><a aria-label="Home" href="https://primoburner.com/" ><span aria-hidden="true">Home</span></a><a aria-label="Blog" href="/" ><span aria-hidden="true">Blog</span></a><a aria-label="Archive" href="/archive/" ><span aria-hidden="true">Archive</span></a></nav>
+
+</header>
+
+<article>
+  <header>
+  <h1><a href="/minimum-os-requirements-and-runtime-dependencies-for-primoburner-net/">Minimum OS requirements and runtime dependencies for PrimoBurner .NET</a></h1><time datetime="2012-10-25T00:00:00-07:00">October 25, 2012</time>
+</header>
+
+  <h3 id="minimum-os-requirements">Minimum OS Requirements</h3>
+
+<ul>
+  <li>PrimoBurner on CLR4: Windows XP SP3 and .NET Framework 4.0</li>
+  <li>PrimoBurner on CLR2: Windows XP SP2 and .NET Framework 2.0</li>
+</ul>
+
+<h3 id="cc-runtime-crt-dependencies">C/C++ Runtime (CRT) Dependencies</h3>
+
+<ul>
+  <li>
+    <p>PrimoBurner.clr4.dll and PrimoBurner.clr4.x64.dll for Visual Studio 2010 depend on 
+<a href="http://www.microsoft.com/en-us/download/details.aspx?id=26999&amp;noprocess">Microsoft.VC100.CRT</a></p>
+  </li>
+  <li>
+    <p>PrimoBurner.clr2.dll and PrimoBurner.clr2.x64.dll for Visual Studio 2008 depend on 
+<a href="http://www.microsoft.com/en-us/download/details.aspx?id=26368&amp;noprocess">Microsoft.VC90.CRT, version 9.0.30729.6161</a></p>
+  </li>
+  <li>
+    <p>PrimoBurner.clr2.dll and PrimoBurner.clr2.x64.dll for Visual Studio 2005 depend on 
+<a href="http://www.microsoft.com/en-us/download/details.aspx?id=26347&amp;noprocess">Microsoft.VC80.CRT, version 8.0.50727.6195</a></p>
+  </li>
+</ul>
+
+<p>In your application, you can use vcredist_x86.exe and vcredist_x64.exe from the links provided above. However, a better solution will be toinclude the proper CRT merge module in your installer.That will guarantee that theCRT won’t be removed from the system. Also the merge modules are much smaller than the vcredist exes because the latterincludeother things besides the CRT.</p>
+
+<p>The links below are for the merge modules that are currently used in PrimoBurner.NET 3.6.5. Feel free to distribute these with your application:</p>
+
+<p>PB 3.6.5.CLR4.VC100 (10.0.x): <a href="http://download-blog.primosoftware.com/vc_crt/10.0/Microsoft_VC100_CRT_x86.msm">VC100_CRT_x86</a>, <a href="http://download-blog.primosoftware.com/vc_crt/10.0/Microsoft_VC100_CRT_x64.msm">VC100_CRT_x64</a></p>
+
+<p>PB 3.6.5.CLR2.VC90 (9.0.30729.6161): <a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.6161/Microsoft_VC90_CRT_x86.msm">VC90_CRT_x86</a>(<a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.6161/policy_9_0_Microsoft_VC90_CRT_x86.msm">policy</a>), <a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.6161/Microsoft_VC90_CRT_x86_x64.msm">VC90_CRT_x64</a>(<a href="http://download-blog.primosoftware.com/vc_crt/9.0.30729.6161/policy_9_0_Microsoft_VC90_CRT_x86_x64.msm">policy</a>)</p>
+
+<p>PB 3.6.5.CLR2.VC80 (8.0.50727.6195): <a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.6195/Microsoft_VC80_CRT_x86.msm">VC80_CRT_x86</a>(<a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.6195/policy_8_0_Microsoft_VC80_CRT_x86.msm">policy</a>), <a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.6195/Microsoft_VC80_CRT_x86_x64.msm">VC80_CRT_x64</a>(<a href="http://download-blog.primosoftware.com/vc_crt/8.0.50727.6195/policy_8_0_Microsoft_VC80_CRT_x86_x64.msm">policy</a>)</p>
+
+<p>Please note that policy is not mandatory. The policy merely redirects existing applications which use an older CRT to the currently installed version.</p>
+
+  
+    <hr>
+    <div id="disqus_thread"></div>
+    
+    <noscript>Please enable JavaScript to view comments.</noscript>
+  
+</article>
+
+
+
+<footer>
+  <div>&copy; Primo Software</div>
+  <nav><a aria-label="Mail" href="mailto:sales@primoburner.com" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a aria-label="Github" href="https://github.com/primoburner" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a><a aria-label="Subscribe" href="/feed.xml" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#rss"></use></svg></a></nav>
+
+</footer>
+
+
+</html>

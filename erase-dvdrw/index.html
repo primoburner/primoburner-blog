@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+<title>How to erase a DVD+RW | PrimoBurner</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Primo Software">
+<meta name="generator" content="Jekyll v4.3.3">
+<link rel="canonical" href="https://blog.primoburner.com/erase-dvdrw/">
+
+
+<link rel="stylesheet" href="/assets/css/frame.css">
+
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="PrimoBurner">
+
+
+
+<script src="//primoburner-blog.disqus.com/embed.js" async></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-25B50SV98X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-25B50SV98X');
+</script>
+
+</head>
+
+
+
+
+<header>
+  <a href="https://primoburner.com" class="title">PrimoBurner</a>
+  <nav><a aria-label="Home" href="https://primoburner.com/" ><span aria-hidden="true">Home</span></a><a aria-label="Blog" href="/" ><span aria-hidden="true">Blog</span></a><a aria-label="Archive" href="/archive/" ><span aria-hidden="true">Archive</span></a></nav>
+
+</header>
+
+<article>
+  <header>
+  <h1><a href="/erase-dvdrw/">How to erase a DVD+RW</a></h1><time datetime="2010-06-15T00:00:00-07:00">June 15, 2010</time>
+</header>
+
+  <p>If you want to erase the contents of a DVD+RW media you should write 0s in the sectors that contain the data you want to erase. Here is the C# code:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// TODO: Initialize the device variable using PrimoSoftware.Burner.DeviceEnumerator object</span>
+<span class="n">PrimoSoftware</span><span class="p">.</span><span class="n">Burner</span><span class="p">.</span><span class="n">Device</span> <span class="n">device</span><span class="p">;</span>
+
+<span class="c1">// Set this variable with the desired number of blocks to fill with 0s.</span>
+<span class="c1">// 2000 blocks are enough to erase the ISO and UDF file system descriptors</span>
+<span class="c1">// from the target medium.</span>
+<span class="kt">long</span> <span class="n">blocksToWrite</span> <span class="p">=</span> <span class="m">2000</span><span class="p">;</span>
+<span class="n">device</span><span class="p">.</span><span class="nf">StartDVDSession</span><span class="p">(</span><span class="k">false</span><span class="p">,</span> <span class="n">WriteMethod</span><span class="p">.</span><span class="n">DvdIncremental</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+
+<span class="c1">// Start writing 0s from the first block on the target medium</span>
+<span class="n">device</span><span class="p">.</span><span class="n">NewSessionStartAddress</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="n">device</span><span class="p">.</span><span class="nf">StartDVDTrack</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">blocksToWrite</span><span class="p">));</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">writeChunk</span> <span class="p">=</span> <span class="m">32</span><span class="p">;</span>
+
+<span class="c1">// Create a data buffer filled with 0s that will be written repeatedly on the target medium</span>
+<span class="kt">byte</span><span class="p">[]</span> <span class="n">dummyBuffer</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="n">writeChunk</span> <span class="p">*</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">BlockSize</span><span class="p">.</span><span class="n">Dvd</span><span class="p">];</span>
+
+<span class="kt">long</span> <span class="n">lAddrBuf1</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="kt">long</span> <span class="n">lAddrBuf2</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">buf1Size</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">buf2Size</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">blocks</span> <span class="p">=</span> <span class="n">blocksToWrite</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">blocksChunk</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+<span class="c1">// Perform the actual writing</span>
+<span class="k">while</span> <span class="p">((</span><span class="n">blocksChunk</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Min</span><span class="p">(</span><span class="n">blocks</span><span class="p">,</span> <span class="n">writeChunk</span><span class="p">))</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">buf1Size</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="n">buf2Size</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="n">device</span><span class="p">.</span><span class="nf">LockOutputBuffer</span><span class="p">(</span><span class="n">blocksChunk</span><span class="p">,</span> 
+                            <span class="k">out</span> <span class="n">lAddrBuf1</span><span class="p">,</span> <span class="k">out</span> <span class="n">buf1Size</span><span class="p">,</span> 
+                            <span class="k">out</span> <span class="n">lAddrBuf2</span><span class="p">,</span> <span class="k">out</span> <span class="n">buf2Size</span><span class="p">);</span>
+
+    <span class="c1">// TODO: Copy the content from dummyBuffer into the memory pointed to by lAddrBuf1 and lAddrBuf2</span>
+
+    <span class="n">device</span><span class="p">.</span><span class="nf">UnlockOutputBuffer</span><span class="p">(</span><span class="n">blocksChunk</span><span class="p">);</span>
+    <span class="n">blocks</span> <span class="p">-=</span> <span class="n">blocksChunk</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">device</span><span class="p">.</span><span class="nf">EndDVDTrack</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="n">device</span><span class="p">.</span><span class="nf">EndDVDSession</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+  
+    <hr>
+    <div id="disqus_thread"></div>
+    
+    <noscript>Please enable JavaScript to view comments.</noscript>
+  
+</article>
+
+
+
+<footer>
+  <div>&copy; Primo Software</div>
+  <nav><a aria-label="Mail" href="mailto:sales@primoburner.com" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a aria-label="Github" href="https://github.com/primoburner" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a><a aria-label="Subscribe" href="/feed.xml" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#rss"></use></svg></a></nav>
+
+</footer>
+
+
+</html>
