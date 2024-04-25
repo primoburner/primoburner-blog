@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>  
-<title>The procedure entry point EncodePointer could not be located in the dynamic link library KERNEL32.dll | PrimoBurner</title>
+<title>What&#39;s new in PrimoBurner v5.0 | PrimoBurner</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Primo Software">
 <meta name="generator" content="Jekyll v4.3.3">
-<link rel="canonical" href="https://blog.primoburner.com/procedure-entry-point-encodepointer-located-dynamic-link-library-kernel32-dll/">
+<link rel="canonical" href="https://blog.primoburner.com/whats-new-primoburner-v5/">
 
 
 <link rel="stylesheet" href="/assets/css/frame.css">
@@ -44,16 +44,33 @@
 
 <article>
   <header>
-  <h1><a href="/procedure-entry-point-encodepointer-located-dynamic-link-library-kernel32-dll/">The procedure entry point EncodePointer could not be located in the dynamic link library KERNEL32.dll</a></h1><time datetime="2010-07-02T00:00:00-07:00">July 02, 2010</time>
+  <h1><a href="/whats-new-primoburner-v5/">What's new in PrimoBurner v5.0</a></h1><time datetime="2024-04-25T00:00:00-07:00">April 25, 2024</time>
 </header>
 
-  <p>When using PrimoBurner 3.5.3 on Windows XP with SP1 or lower you may receive the following error:</p>
+  <h3 id="api">API</h3>
 
-<p>“The procedure entry point EncodePointer could not be located in the dynamic link library KERNEL32.dll”</p>
+<ul>
+  <li>Support ARM 64-bit architecture: Windows arm64, macOS arm64, and Ubuntu aarch64</li>
+  <li>Remove 32-bit application support (C++ and .NET)</li>
+  <li>C++: Refactor API headers to use lowercase file names and subdirectories for namespaces</li>
+  <li>.NET: New PrimoBurner .NET SDK for macOS and Linux (based on .NET Core 6+)</li>
+  <li>Distribute the <a href="https://github.com/primoburner/primoburner-core/releases">PrimoBurner Core</a> and <a href="https://github.com/primoburner/primoburner-net-core/releases">PrimoBurner .NET Core</a> through GitHub</li>
+</ul>
 
-<p>This is due to the fact that PrimoBurner 3.5.3 uses the VC runtime that comes with Visual Studio 2010 which in turn uses some API functions that are present only in Windows XP SP2 and above.</p>
+<h3 id="samples">Samples</h3>
 
-<p>For more information please see:<a href="http://support.microsoft.com/kb/2005279">http://support.microsoft.com/kb/2005279</a></p>
+<ul>
+  <li>Use cmake and Visual Studio Code for PrimoBurner samples</li>
+  <li><a href="https://github.com/primoburner">GitHub</a> repositories for PrimoBurner samples</li>
+  <li>C++: New bluray-data CLI sample for <a href="https://github.com/primoburner/primoburner-cpp/tree/main/samples/windows/bluray-data">Windows</a>, <a href="https://github.com/primoburner/primoburner-cpp/tree/main/samples/darwin/bluray-data">macOS</a>, and <a href="https://github.com/primoburner/primoburner-cpp/tree/main/samples/linux/bluray-data">Linux</a></li>
+</ul>
+
+<h3 id="docs">Docs</h3>
+
+<ul>
+  <li>Split the wiki to separate <a href="https://wiki.primoburner.com/">C++</a> and <a href="https://wiki-net.primoburner.com/">.NET</a> sites</li>
+</ul>
+
 
   
     <hr>

@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://blog.primoburner.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.primoburner.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-04-21T11:55:28-07:00</updated><id>https://blog.primoburner.com/feed.xml</id><title type="html">PrimoBurner</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Minimum OS requirements and runtime dependencies for PrimoBurner .NET</title><link href="https://blog.primoburner.com/minimum-os-requirements-and-runtime-dependencies-for-primoburner-net/" rel="alternate" type="text/html" title="Minimum OS requirements and runtime dependencies for PrimoBurner .NET" /><published>2012-10-25T00:00:00-07:00</published><updated>2012-10-25T00:00:00-07:00</updated><id>https://blog.primoburner.com/minimum-os-requirements-and-runtime-dependencies-for-primoburner-net</id><content type="html" xml:base="https://blog.primoburner.com/minimum-os-requirements-and-runtime-dependencies-for-primoburner-net/"><![CDATA[<h3 id="minimum-os-requirements">Minimum OS Requirements</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://blog.primoburner.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.primoburner.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-04-25T09:43:22-07:00</updated><id>https://blog.primoburner.com/feed.xml</id><title type="html">PrimoBurner</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">What’s new in PrimoBurner v5.0</title><link href="https://blog.primoburner.com/whats-new-primoburner-v5/" rel="alternate" type="text/html" title="What’s new in PrimoBurner v5.0" /><published>2024-04-25T00:00:00-07:00</published><updated>2024-04-25T00:00:00-07:00</updated><id>https://blog.primoburner.com/whats-new-primoburner-v5</id><content type="html" xml:base="https://blog.primoburner.com/whats-new-primoburner-v5/"><![CDATA[<h3 id="api">API</h3>
+
+<ul>
+  <li>Support ARM 64-bit architecture: Windows arm64, macOS arm64, and Ubuntu aarch64</li>
+  <li>Remove 32-bit application support (C++ and .NET)</li>
+  <li>C++: Refactor API headers to use lowercase file names and subdirectories for namespaces</li>
+  <li>.NET: New PrimoBurner .NET SDK for macOS and Linux (based on .NET Core 6+)</li>
+  <li>Distribute the <a href="https://github.com/primoburner/primoburner-core/releases">PrimoBurner Core</a> and <a href="https://github.com/primoburner/primoburner-net-core/releases">PrimoBurner .NET Core</a> through GitHub</li>
+</ul>
+
+<h3 id="samples">Samples</h3>
+
+<ul>
+  <li>Use cmake and Visual Studio Code for PrimoBurner samples</li>
+  <li><a href="https://github.com/primoburner">GitHub</a> repositories for PrimoBurner samples</li>
+  <li>C++: New bluray-data CLI sample for <a href="https://github.com/primoburner/primoburner-cpp/tree/main/samples/windows/bluray-data">Windows</a>, <a href="https://github.com/primoburner/primoburner-cpp/tree/main/samples/darwin/bluray-data">macOS</a>, and <a href="https://github.com/primoburner/primoburner-cpp/tree/main/samples/linux/bluray-data">Linux</a></li>
+</ul>
+
+<h3 id="docs">Docs</h3>
+
+<ul>
+  <li>Split the wiki to separate <a href="https://wiki.primoburner.com/">C++</a> and <a href="https://wiki-net.primoburner.com/">.NET</a> sites</li>
+</ul>]]></content><author><name>Primo Software</name></author><category term=".net" /><category term="runtime" /><summary type="html"><![CDATA[API Support ARM 64-bit architecture: Windows arm64, macOS arm64, and Ubuntu aarch64 Remove 32-bit application support (C++ and .NET) C++: Refactor API headers to use lowercase file names and subdirectories for namespaces .NET: New PrimoBurner .NET SDK for macOS and Linux (based on .NET Core 6+) Distribute the PrimoBurner Core and PrimoBurner .NET Core through GitHub]]></summary></entry><entry><title type="html">Minimum OS requirements and runtime dependencies for PrimoBurner .NET</title><link href="https://blog.primoburner.com/minimum-os-requirements-and-runtime-dependencies-for-primoburner-net/" rel="alternate" type="text/html" title="Minimum OS requirements and runtime dependencies for PrimoBurner .NET" /><published>2012-10-25T00:00:00-07:00</published><updated>2012-10-25T00:00:00-07:00</updated><id>https://blog.primoburner.com/minimum-os-requirements-and-runtime-dependencies-for-primoburner-net</id><content type="html" xml:base="https://blog.primoburner.com/minimum-os-requirements-and-runtime-dependencies-for-primoburner-net/"><![CDATA[<h3 id="minimum-os-requirements">Minimum OS Requirements</h3>
 
 <ul>
   <li>PrimoBurner on CLR4: Windows XP SP3 and .NET Framework 4.0</li>
